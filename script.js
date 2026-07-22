@@ -53,6 +53,11 @@ function applyFilters() {
   const start = Number(elements.startYearFilter.value) || null;
   const end = Number(elements.endYearFilter.value) || null;
 
+  console.log({
+  start: elements.startYearFilter.value,
+  end: elements.endYearFilter.value
+});
+
   filteredRecords = records.filter(record => {
     const recordStart = yearFrom(record.DateDébut || record.Date);
     const recordEnd = yearFrom(record.DateFin || record.Date) ?? recordStart;
