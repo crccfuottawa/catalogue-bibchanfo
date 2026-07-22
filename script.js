@@ -181,7 +181,15 @@ async function init() {
     filteredRecords = [...records];
     const types = [...new Set(records.flatMap(r => splitOptions(r.Type)).filter(Boolean))].sort((a,b) => a.localeCompare(b, "fr"));
     types.forEach(type => { const option = document.createElement("option"); option.value = type; option.textContent = type; elements.typeFilter.appendChild(option); });
-    ids.forEach(id => elements[id].addEventListener(id === "typeFilter" ? "change" : "input", applyFilters));
+    document.getElementById("searchButton").addEventListener("click", applyFilters);
+    elements.typeFilter.addEventListener("change", applyFilters);
+    ids.forEach(id => {
+      elements[id].addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            applyFilters();
+        } 
+      }); 
+    });
     document.getElementById("resetButton").addEventListener("click", () => { ids.forEach(id => elements[id].value = ""); applyFilters(); });
     render();
   } catch (error) {
