@@ -29,6 +29,6 @@ Ne publiez pas les colonnes internes ou confidentielles. Dans ce prototype, les 
 
 ## Données de cette version
 
-Cette version contient **759 notices** provenant du fichier `Bibchanfo.xlsx`.
+Cette version contient **753 notices** provenant du fichier `Bibchanfo.xlsx`.
 
 Les valeurs séparées par une barre verticale (`|`) sont interprétées comme plusieurs auteurs, sujets ou options distinctes.
