@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogue Bibchanfo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">CRCCF</p>
+      <h1>Catalogue Bibchanfo</h1>
+      <p>Recherchez les notices par titre, auteur, sujet, type ou période.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-panel" aria-labelledby="search-title">
+      <h2 id="search-title">Rechercher dans le catalogue</h2>
+      <div class="filters">
+        <label>Titre
+          <input id="titleFilter" type="search" placeholder="Ex. littérature, Le Secret…">
+        </label>
+        <label>Auteur
+          <input id="authorFilter" type="search" placeholder="Ex. Quinty, Serge…">
+        </label>
+        <label>Sujet
+          <input id="subjectFilter" type="search" placeholder="Ex. identité, musique…">
+        </label>
+        <label>Type
+          <select id="typeFilter"><option value="">Tous les types</option></select>
+        </label>
+        <label>Année de début
+          <input id="startYearFilter" type="number" inputmode="numeric" min="1000" max="9999" placeholder="Ex. 1990">
+        </label>
+        <label>Année de fin
+          <input id="endYearFilter" type="number" inputmode="numeric" min="1000" max="9999" placeholder="Ex. 2005">
+        </label>
+      </div>
+      <div class="actions">
+        <button id="resetButton" type="button" class="secondary">Réinitialiser</button>
+      </div>
+    </section>
+
+    <div class="results-heading">
+      <h2>Résultats</h2>
+      <p id="resultCount" aria-live="polite">Chargement…</p>
+    </div>
+    <section id="results" class="results" aria-label="Résultats de recherche"></section>
+    <nav id="pagination" class="pagination" aria-label="Pagination"></nav>
+  </main>
+
+  <template id="recordTemplate">
+    <article class="record-card">
+      <div class="record-topline">
+        <span class="record-type"></span>
+        <span class="record-number"></span>
+      </div>
+      <h3 class="record-title"></h3>
+      <dl class="record-details"></dl>
+      <div class="subject-list"></div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
