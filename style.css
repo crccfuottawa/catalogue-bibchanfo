@@ -28,7 +28,25 @@ dl.record-details { display:grid; grid-template-columns:max-content 1fr; gap:3px
 dt { font-weight:bold; }
 dd { margin:0; }
 .subject-list { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
-.subject-tag { background:#eceff1; border-radius:999px; padding:4px 9px; font-size:.88rem; }
+.subject-tag {
+  background:#eceff1;
+  color:var(--ink);
+  border:1px solid transparent;
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:.88rem;
+  font-weight:normal;
+  line-height:1.4;
+}
+.subject-tag:hover {
+  background:#dde2e5;
+  border-color:#b7bdc1;
+  text-decoration:underline;
+}
+.subject-tag:focus {
+  outline:3px solid rgba(143,0,26,.25);
+  outline-offset:2px;
+}
 .empty { background:white; border:1px solid var(--line); padding:28px; text-align:center; border-radius:8px; }
 .pagination { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:24px; flex-wrap:wrap; }
 .pagination button[aria-current="page"] { background:var(--accent); color:white; }

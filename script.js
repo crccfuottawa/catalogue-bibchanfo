@@ -103,9 +103,20 @@ function renderRecords() {
     addDetail(dl, "Notes", record.Notes);
     const subjectList = card.querySelector(".subject-list");
     splitOptions(record.Sujets).forEach(subject => {
-      const tag = document.createElement("span");
+      const tag = document.createElement("button");
+      tag.type = "button";
       tag.className = "subject-tag";
       tag.textContent = subject;
+      tag.title = `Afficher toutes les notices ayant le sujet « ${subject} »`;
+      tag.setAttribute("aria-label", `Rechercher le sujet ${subject}`);
+      tag.addEventListener("click", () => {
+        elements.subjectFilter.value = subject;
+        applyFilters();
+        document.getElementById("resultsHeading").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
       subjectList.appendChild(tag);
     });
     container.appendChild(card);
